@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="ko" data-theme="ocean">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>우리 캠페인</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b2545; --fg:#0a2f50; --accent:#0b6ea8; --sub:#20507a;
+    --font:"Jua","맑은 고딕","Malgun Gothic",sans-serif;
+  }
+  [data-theme="ocean"] { --bg:#0b2545; --fg:#0a2f50; --accent:#0b6ea8; --sub:#20507a; }
+  [data-theme="forest"]{ --bg:#14281d; --fg:#f4fff8; --accent:#7cb518; --sub:#c3e8bd; }
+  [data-theme="sunset"]{ --bg:#3d1e2e; --fg:#fff5e1; --accent:#ff8c42; --sub:#ffd9a0; }
+  [data-theme="night"] { --bg:#12121c; --fg:#f0f0ff; --accent:#9b8cff; --sub:#c9c4e8; }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background-color:var(--bg);
+    background-image:url('assets/그림-15.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:var(--fg);font-family:var(--font);overflow:hidden;
+  }
+  /* 배경 그림이 화사하게 보이면서도 글자가 읽히도록 연한 막을 얹는다 */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:rgba(11,37,69,.28);
+  }
+  .slide{
+    position:absolute;inset:0;display:none;z-index:1;
+    flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:6vh 8vw;gap:2.4vh;
+  }
+  .slide.on{display:flex}
+  h1{font-size:10vh;line-height:1.2;color:var(--accent)}
+  h2{font-size:7.5vh;line-height:1.25;color:var(--accent)}
+  p,li{font-size:5vh;line-height:1.5;color:var(--fg)}
+  ul{text-align:left;max-width:80%}
+  li{margin:1vh 0}
+  .team{font-size:4.5vh;color:var(--sub)}
+  /* 한 낱말이 둘로 갈라지지 않도록, 줄 바꿈은 낱말 사이에서만 한다 */
+  h1,h2,p,li,.team{word-break:keep-all;overflow-wrap:break-word}
+  .media{max-width:70%;max-height:52vh;border-radius:1.6vh}
+  /* 글과 그림을 옆으로 나란히 놓는 칸 */
+  .row{display:flex;align-items:center;justify-content:center;gap:4vw;width:100%;flex-wrap:wrap}
+  .row .text{flex:1 1 40%;min-width:240px}
+  .row .media{flex:1 1 38%;max-width:44%}
+  /* 마지막 장: 인사 그림을 배경으로 깔고 글은 그 위에 */
+  .bgimg{background:url('assets/그림-21.jpg') center/cover no-repeat}
+  .bgimg::before{content:"";position:absolute;inset:0;background:rgba(11,37,69,.22);z-index:0}
+  .bgimg>*{position:relative;z-index:1}
+  .bgimg .thanks-msg{font-size:10vh;margin-top:4vh}
+  .hint{position:fixed;right:2vw;bottom:2vh;font-size:1.8vh;color:var(--sub);opacity:.7}
+  .page{position:fixed;left:2vw;bottom:2vh;font-size:1.8vh;color:var(--sub);opacity:.7}
+</style>
+</head>
+<body>
+
+<!-- 1. 표지 -->
+<section class="slide on">
+  <h1>푸른 바다, 우리가 지켜요!</h1>
+  <p class="team">13조 바다 지킴이</p>
+  <img class="media" src="assets/그림-14.jpg" alt="해안가 쓰레기를 바라보며 슬퍼하는 거북이">
+</section>
+
+<!-- 2. 우리가 찾은 문제 -->
+<section class="slide">
+  <div class="row">
+    <div class="text">
+      <h2>우리가 찾은 문제</h2>
+      <p>바다 생물들이 쓰레기를 먹이로 착각해요.</p>
+      <p>그물에 걸리거나 코에 빨대가 박히기도 해요.</p>
+    </div>
+    <img class="media" src="assets/그림-16.jpg" alt="그물에 걸린 돌고래와 코에 빨대가 박힌 거북이">
+  </div>
+</section>
+
+<!-- 3. 우리의 질문 -->
+<section class="slide">
+  <h2>우리의 질문</h2>
+  <p>"어떻게 하면 바다 생물들을 지킬 수 있을까?"</p>
+  <h2>답</h2>
+  <p>우리가 플라스틱 등의 쓰레기들이 바다로 버려지는 것을 플로깅으로 막을 수 있어요.</p>
+</section>
+
+<!-- 4. 우리의 캠페인 -->
+<section class="slide">
+  <div class="row">
+    <div class="text">
+      <h2>우리의 캠페인</h2>
+      <ul>
+        <li>바다에서 쓰레기를 줍는 캠페인이에요.</li>
+        <li>모든 사람들에게 알리고 싶어요.</li>
+      </ul>
+    </div>
+    <img class="media" src="assets/그림-19.jpg" alt="해안가와 바다에서 플로깅하는 사람들">
+  </div>
+</section>
+
+<!-- 5. 우리가 만든 것 -->
+<section class="slide">
+  <h2>우리가 만든 것</h2>
+  <p>깨끗한 바다는 동물들이 행복하게 살아요. 하지만 쓰레기로 가득한 바다는 동물들이 살 수 없어요.</p>
+  <img class="media" src="assets/그림-10.jpg" alt="깨끗한 바다와 쓰레기로 가득한 바다 비교 그림">
+</section>
+
+<!-- 6. 이렇게 실천해요 -->
+<section class="slide">
+  <h2>이렇게 실천해요</h2>
+  <p><strong>오늘부터 할 수 있는 일:</strong> 나 자신부터 캠페인에 참여해요.</p>
+  <p><strong>친구들과 함께 할 수 있는 일:</strong></p>
+  <ul>
+    <li>학교에 바다 쓰레기 문제 알리는 포스터 붙이기</li>
+    <li>주운 쓰레기로 새 물건 만들기 (업사이클링)</li>
+  </ul>
+</section>
+
+<!-- 7. 우리 팀 -->
+<section class="slide bgimg">
+  <h2>우리 팀</h2>
+  <p class="team">13조 바다 지킴이</p>
+  <p class="thanks-msg">감사합니다!</p>
+</section>
+
+<!-- 8. 플로깅 게임 -->
+<section class="slide" id="gameSlide">
+  <h2>다 같이 플로깅!</h2>
+  <p>스페이스: 숨기 · Shift 또는 P: 잠깐 멈춤 · 15초마다 다음 단계로!</p>
+  <canvas id="game" width="820" height="360">이 게임을 보려면 새로운 브라우저가 필요해요.</canvas>
+  <p>주운 쓰레기: <strong id="score">0</strong>개</p>
+</section>
+
+<!-- 여기에 친구들 슬라이드가 들어갑니다 (합쳐줘 를 쓰면 아래에 채워져요) -->
+
+<div class="page"><span id="now">1</span> / <span id="all">7</span></div>
+<div class="hint">← → 눌러서 넘기기</div>
+
+<!-- 움직임 라이브러리. 없어도 발표자료는 그대로 보인다 -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+
+<script>
+(function(){
+  var slides = document.querySelectorAll('.slide');
+  var i = 0;
+  document.getElementById('all').textContent = slides.length;
+
+  // 움직임을 불편해하는 사람을 위한 설정을 존중한다
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 장이 나타날 때 안쪽 요소가 아래에서 살짝 올라온다.
+  // GSAP 이 없거나(CDN 실패) 사용자가 움직임을 껐으면 그냥 보여준다.
+  // 무슨 일이 있어도 글은 보여야 한다. 인라인 스타일을 지워 원래 모습으로 돌린다.
+  function 무조건보이기(items){
+    for (var k = 0; k < items.length; k++) {
+      items[k].style.opacity = '';
+      items[k].style.transform = '';
+      items[k].style.translate = '';
+      items[k].style.rotate = '';
+      items[k].style.scale = '';
+    }
+  }
+
+  function animateIn(slide){
+    var items = slide.children;
+
+    // 움직임을 껐거나, CDN 이 실패했거나, 화면에 안 보이는 탭이면 그냥 보여준다.
+    // (안 보이는 탭에서는 브라우저가 애니메이션을 멈춰서 opacity 0 으로 굳는다)
+    if (reduceMotion || !window.gsap || document.hidden) {
+      무조건보이기(items);
+      return;
+    }
+
+    gsap.killTweensOf(items);
+    gsap.fromTo(items,
+      { opacity: 0, y: 18 },
+      { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: 'power2.out', clearProps: 'all' }
+    );
+
+    // 마지막 안전망: 1.2초 뒤에도 아직 투명하면 애니메이션을 포기하고 보여준다.
+    // 발표 중에 글이 안 보이는 것보다 움직임이 없는 게 낫다.
+    clearTimeout(slide.__safety);
+    slide.__safety = setTimeout(function(){
+      if (items.length && getComputedStyle(items[0]).opacity !== '1') {
+        gsap.killTweensOf(items);
+        무조건보이기(items);
+      }
+    }, 1200);
+  }
+
+  // 탭으로 돌아왔을 때 굳어 있으면 풀어 준다
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) { animateIn(slides[i]); }
+  });
+
+  function show(n){
+    if (n < 0) n = 0;
+    if (n > slides.length - 1) n = slides.length - 1;
+    slides[i].classList.remove('on');
+    i = n;
+    slides[i].classList.add('on');
+    document.getElementById('now').textContent = i + 1;
+    animateIn(slides[i]);
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { show(i+1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                   { show(i-1); }
+    if (e.key === 'Home') { show(0); }
+    if (e.key === 'End')  { show(slides.length-1); }
+  });
+  document.addEventListener('click', function(e){
+    show(e.clientX < window.innerWidth/3 ? i-1 : i+1);
+  });
+
+  // 첫 장에도 등장 애니메이션을 걸어 준다.
+  // CDN 이 늦게 도착할 수 있으니 load 까지 기다린다.
+  if (document.readyState === 'complete') { animateIn(slides[0]); }
+  else { window.addEventListener('load', function(){ animateIn(slides[0]); }); }
+})();
+</script>
+
+<style>
+  canvas#game{width:min(92vw,780px);height:auto;border-radius:2vh;box-shadow:0 12px 30px rgba(0,0,0,.25);display:block;margin:0 auto;touch-action:none}
+</style>
+<script>
+(function(){
+  var slide = document.getElementById('gameSlide');
+  var cv = document.getElementById('game');
+  var scoreEl = document.getElementById('score');
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var sandTop = 250, feetY = 322;
+
+  var px = 180;            // 달리는 거북이의 자리 (움직이지 않음)
+  var face = 1;
+  var phase = 0;
+  var items = [];
+  var score = 0;
+  var started = false;
+  var over = false;
+  var crashed = false;
+  var cleared = false;     // 6단계까지 모두 통과했는지
+  var wasOn = false;
+  var lastT = 0;
+  var spawnWait = 0.6;
+  var level = 1;           // 지금 단계 (1~6)
+  var timeLeft = 15;       // 한 단계에 주어진 시간
+  var levelUp = 0;         // "단계 통과!" 축하 시간 (그동안 잠깐 멈춤)
+  var paused = false;      // Shift(또는 P) 키로 멈춘 상태
+  var hideT = 0;           // 등껍질에 숨어 있는 남은 시간
+  var prep = 0;            // 숨기 전 쪼그려 앉는 준비 동작 시간
+  var scroll = 0;          // 땅이 흐르는 거리 (배경이 움직여 보이게)
+  var flashes = [];        // 주웠을 때 반짝임
+
+  // 모래알 점 위치 (매번 바뀌지 않도록 처음에만 정한다)
+  var sandSeeds = [];
+  for (var _k = 0; _k < 30; _k++){
+    sandSeeds.push({ y: sandTop + 12 + Math.random()*(H - sandTop - 20), r: 1 + Math.random()*2 });
+  }
+  function wrap(v, n){ v = v % n; if (v < 0) v += n; return v; }
+
+  function curSpeed(){ return 240 + (level-1)*45; }
+
+  function reset(){
+    items = []; score = 0; level = 1; timeLeft = 15;
+    hideT = 0; prep = 0; levelUp = 0; scroll = 0; flashes = [];
+    over = false; crashed = false; cleared = false; paused = false; spawnWait = 0.6;
+    scoreEl.textContent = '0';
+  }
+  function spawn(){
+    var r = Math.random();
+    // 단계가 높을수록 쓰레기는 줄고 장애물은 늘어난다
+    var trashChance = Math.max(0.32, 0.62 - (level-1)*0.06);
+    var item;
+    if (r < trashChance){
+      var kinds = ['bottle','bag','can','cup','ring'];
+      item = { type:'trash', kind: kinds[(Math.random()*5)|0], x: W + 30, y: feetY - 12 - Math.random()*10 };
+    } else if (r < trashChance + 0.14){
+      item = { type:'rock', x: W + 30, y: feetY, h: 30 };
+    } else {
+      item = { type:'log', x: W + 30, y: feetY, h: 26 };
+    }
+    item.sway = Math.random()*6.28;
+    items.push(item);
+  }
+
+  function drawSky(){
+    var g = ctx.createLinearGradient(0,0,0,sandTop);
+    g.addColorStop(0,'#8fe0ff'); g.addColorStop(1,'#dff7ff');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,sandTop);
+    // 태양
+    ctx.fillStyle = '#fff3b0';
+    ctx.beginPath(); ctx.arc(660,74,34,0,6.283); ctx.fill();
+    ctx.fillStyle = '#ffe97d';
+    ctx.beginPath(); ctx.arc(660,74,26,0,6.283); ctx.fill();
+    // 구름 (천천히 왼쪽으로 흐른다)
+    ctx.fillStyle = 'rgba(255,255,255,.85)';
+    var c1 = wrap(150 - scroll*0.12, W + 160) - 40;
+    ctx.beginPath(); ctx.arc(c1,60,18,0,6.283); ctx.arc(c1+30,52,22,0,6.283); ctx.arc(c1+62,60,16,0,6.283); ctx.fill();
+    var c2 = wrap(430 - scroll*0.12, W + 160) - 40;
+    ctx.beginPath(); ctx.arc(c2,96,14,0,6.283); ctx.arc(c2+26,90,18,0,6.283); ctx.arc(c2+52,96,12,0,6.283); ctx.fill();
+  }
+  function drawSea(){
+    var g = ctx.createLinearGradient(0,130,0,250);
+    g.addColorStop(0,'#6fd0ee'); g.addColorStop(1,'#2f9fd6');
+    ctx.fillStyle = g; ctx.fillRect(0,130,W,120);
+    ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 2;
+    for (var i = 0; i < 9; i++){
+      var x = wrap(40 + i*95 - scroll*0.5, W + 60) - 30;
+      var y = 152 + ((i*41) % 80);
+      ctx.beginPath(); ctx.arc(x, y, 10, Math.PI, 0); ctx.stroke();
+    }
+  }
+  function drawSand(){
+    var g = ctx.createLinearGradient(0,sandTop,0,H);
+    g.addColorStop(0,'#fbeec1'); g.addColorStop(1,'#ecd39b');
+    ctx.fillStyle = g; ctx.fillRect(0,sandTop,W,H-sandTop);
+    // 하얀 파도 경계 (거북이와 같은 속도로 흐른다)
+    ctx.fillStyle = 'rgba(255,255,255,.8)';
+    var step = 44;
+    for (var i = 0; i < 24; i++){
+      var fx = wrap(i*step - scroll, W + step) - step/2;
+      ctx.beginPath();
+      ctx.arc(fx, sandTop, step/2, Math.PI, 0);
+      ctx.fill();
+    }
+    // 모래알 점 (흐르는 것처럼 보인다)
+    ctx.fillStyle = '#e2c385';
+    var sstep = W / sandSeeds.length;
+    for (var s = 0; s < sandSeeds.length; s++){
+      var sx = wrap(8 + s*sstep - scroll, W);
+      var sd = sandSeeds[s];
+      ctx.beginPath();
+      ctx.arc(sx, sd.y, sd.r, 0, 6.283);
+      ctx.fill();
+    }
+  }
+  function drawFlashes(){
+    for (var i = 0; i < flashes.length; i++){
+      var f = flashes[i];
+      var a = 1 - f.t / 0.4;
+      if (a <= 0) continue;
+      ctx.globalAlpha = a;
+      ctx.fillStyle = '#ffe97d';
+      ctx.beginPath(); ctx.arc(f.x, f.y, 10 - f.t*18, 0, 6.283); ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(f.x, f.y, 5 - f.t*9, 0, 6.283); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  function drawItem(it){
+    ctx.save();
+    ctx.translate(it.x, it.y);
+    var bob = Math.sin(it.sway)*2;
+    if (it.type === 'trash'){
+      if (it.kind === 'bottle'){
+        ctx.fillStyle = '#39b27a';
+        ctx.fillRect(-7, bob-24, 14, 24);
+        ctx.fillStyle = '#1d7a4f';
+        ctx.fillRect(-4, bob-31, 8, 8);
+      } else if (it.kind === 'bag'){
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath(); ctx.ellipse(0, bob, 11, 9, 0, 0, 6.283); ctx.fill();
+        ctx.strokeStyle = '#d9d9d9'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(0, bob-2, 7, 0, 6.283); ctx.stroke();
+      } else if (it.kind === 'can'){
+        ctx.fillStyle = '#8f9aa8';
+        ctx.fillRect(-8, bob-20, 16, 20);
+        ctx.fillStyle = '#c1ccd6';
+        ctx.fillRect(-8, bob-6, 16, 4);
+      } else if (it.kind === 'cup'){
+        // 종이컵
+        ctx.fillStyle = '#e8b26b';
+        ctx.beginPath();
+        ctx.moveTo(-9, bob-26); ctx.lineTo(9, bob-26);
+        ctx.lineTo(7, bob); ctx.lineTo(-7, bob); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = '#c98a45'; ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-9, bob-26); ctx.lineTo(9, bob-26);
+        ctx.lineTo(7, bob); ctx.lineTo(-7, bob); ctx.closePath(); ctx.stroke();
+        ctx.fillStyle = '#c98a45';
+        ctx.fillRect(-10, bob-29, 20, 4);
+      } else {
+        // 플라스틱 링(6개 묶음 고리)
+        ctx.strokeStyle = '#3aa7d8'; ctx.lineWidth = 3;
+        for (var k = 0; k < 3; k++){
+          ctx.beginPath(); ctx.arc(-12 + k*12, bob-8, 5.5, 0, 6.283); ctx.stroke();
+        }
+      }
+    } else if (it.type === 'rock'){
+      ctx.fillStyle = '#9aa7b1';
+      ctx.beginPath();
+      ctx.moveTo(-18, 0); ctx.quadraticCurveTo(-20, -it.h, 0, -it.h);
+      ctx.quadraticCurveTo(20, -it.h + 2, 18, 0); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#7c8994';
+      ctx.beginPath(); ctx.arc(-6, -it.h*0.55, 5, 0, 6.283); ctx.fill();
+    } else { // 나무둥치(통나무)
+      ctx.fillStyle = '#b07d52';
+      ctx.beginPath(); ctx.ellipse(0, -it.h/2, 24, it.h/2, 0, 0, 6.283); ctx.fill();
+      ctx.strokeStyle = '#8a5a34'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.ellipse(0, -it.h/2, 24, it.h/2, 0, 0, 6.283); ctx.stroke();
+      ctx.strokeStyle = '#8a5a34'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.ellipse(-6, -it.h/2, 8, it.h/2 - 3, 0, 0, 6.283); ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawRunner(){
+    var hiding = hideT > 0;
+    ctx.save();
+    // 달릴 때 살짝 통통 튀는 느낌
+    var bob = (prep <= 0 && hideT <= 0) ? -Math.abs(Math.sin(phase))*5 : 0;
+    ctx.translate(px, feetY + bob);
+    // 준비 동작(쪼그려 앉기)이면 몸을 살짝 낮춘다
+    if (prep > 0) ctx.scale(1, 0.9);
+    if (hiding){
+      // 등껍질 속에 쏙 들어간 모습 (머리·다리는 보이지 않음)
+      ctx.fillStyle = '#62c459';
+      ctx.beginPath(); ctx.ellipse(0,-20,24,17,0,0,6.283); ctx.fill();
+      ctx.strokeStyle = '#2f8f43'; ctx.lineWidth = 3.5;
+      ctx.beginPath(); ctx.ellipse(0,-20,24,17,0,0,6.283); ctx.stroke();
+      ctx.strokeStyle = '#2f8f43'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(-10,-31); ctx.lineTo(10,-31); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-17,-20); ctx.lineTo(17,-20); ctx.stroke();
+      // 숨는 중 표시
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 16px Jua, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('슝!', 0, -56);
+      ctx.restore();
+      return;
+    }
+    var step = Math.sin(phase);
+    // 먼 쪽 다리
+    ctx.strokeStyle = '#2e7d32'; ctx.lineWidth = 7; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(-13,-15); ctx.lineTo(-13 - step*7, 0); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(11,-15); ctx.lineTo(11 + step*7, 0); ctx.stroke();
+    // 꼬리
+    ctx.fillStyle = '#9fd8a0';
+    ctx.beginPath(); ctx.moveTo(-22,-24); ctx.lineTo(-33,-27); ctx.lineTo(-22,-17); ctx.closePath(); ctx.fill();
+    // 등딱지(등껍질)
+    ctx.fillStyle = '#62c459';
+    ctx.beginPath(); ctx.ellipse(0,-22,24,15,0,0,6.283); ctx.fill();
+    ctx.strokeStyle = '#2f8f43'; ctx.lineWidth = 3.5;
+    ctx.beginPath(); ctx.ellipse(0,-22,24,15,0,0,6.283); ctx.stroke();
+    // 등껍질 무늬
+    ctx.strokeStyle = '#a5e39a'; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(0,-36); ctx.lineTo(0,-8); ctx.stroke();
+    ctx.strokeStyle = '#2f8f43'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(-12,-30); ctx.lineTo(12,-30); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-18,-20); ctx.lineTo(18,-20); ctx.stroke();
+    // 가까운 쪽 다리
+    ctx.strokeStyle = '#2f8f43'; ctx.lineWidth = 7;
+    ctx.beginPath(); ctx.moveTo(-13,-15); ctx.lineTo(-13 + step*7, 0); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(11,-15); ctx.lineTo(11 - step*7, 0); ctx.stroke();
+    // 머리
+    ctx.fillStyle = '#9fd8a0';
+    ctx.beginPath(); ctx.arc(28,-28,10,0,6.283); ctx.fill();
+    // 눈
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(31.5,-31,4.2,0,6.283); ctx.fill();
+    ctx.fillStyle = '#222';
+    ctx.beginPath(); ctx.arc(33,-31,2.6,0,6.283); ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(34,-32,1,0,6.283); ctx.fill();
+    // 볼(발그레)
+    ctx.globalAlpha = 0.55; ctx.fillStyle = '#ff9d9d';
+    ctx.beginPath(); ctx.arc(35.5,-23,3.4,0,6.283); ctx.fill();
+    ctx.globalAlpha = 1;
+    // 웃는 입
+    ctx.strokeStyle = '#2f8f43'; ctx.lineWidth = 2.2;
+    ctx.beginPath(); ctx.arc(31,-20,4,0.3,2.4); ctx.stroke();
+    // 준비 동작 중 "준비!" 표시
+    if (prep > 0){
+      ctx.font = 'bold 20px Jua, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#ffe97d';
+      ctx.fillText('준비!', 4, -56);
+    }
+    ctx.restore();
+  }
+
+  function drawHud(){
+    ctx.fillStyle = 'rgba(11,37,69,.55)';
+    ctx.fillRect(0,0,W,44);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Jua, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('단계 ' + level + '/6', 16, 31);
+    ctx.textAlign = 'center';
+    ctx.fillText('🗑 ' + score + '개', W/2, 31);
+    ctx.textAlign = 'right';
+    ctx.fillText(Math.max(0, Math.ceil(timeLeft)) + '초', W-16, 31);
+  }
+
+  function frame(ts){
+    var dt = Math.min(0.05, (ts - (lastT || ts)) / 1000);
+    lastT = ts;
+    var isOn = slide.classList.contains('on');
+    if (isOn && !wasOn){ started = true; reset(); }
+    wasOn = isOn;
+
+    if (isOn && started && !over){
+      if (!paused){
+        // 시간은 Shift 키로 멈출 수 있다
+        timeLeft -= dt;
+
+        if (levelUp > 0){
+          // "단계 통과!" 잠깐 멈췄다가 다음 단계로
+          levelUp -= dt;
+          if (levelUp <= 0){
+            level++;
+            timeLeft = 15;
+            items = [];
+            spawnWait = 0.6;
+            hideT = 0; prep = 0;
+          }
+        } else if (timeLeft <= 0){
+          if (level >= 6){
+            over = true; cleared = true;
+          } else {
+            levelUp = 1.4;
+            timeLeft = 0;
+          }
+        } else {
+          // 스페이스를 누르면: 쪼그려 앉기(준비) → 등껍질 속으로 숨기
+          if (prep > 0){
+            prep -= dt;
+            if (prep <= 0){ hideT = 0.85; }
+          }
+          if (hideT > 0){
+            hideT -= dt;
+            if (hideT < 0) hideT = 0;
+          }
+          // 달리는 동안에만 다리를 움직인다 (준비·숨기 중엔 멈춤)
+          if (prep <= 0 && hideT <= 0){ phase += dt * 13; }
+
+          // 쓰레기·장애물 만들기 (단계가 높을수록 자주 나온다)
+          spawnWait -= dt;
+          if (spawnWait <= 0){
+            spawn();
+            spawnWait = Math.max(0.42, 0.9 - (level-1)*0.09) + Math.random()*0.4;
+          }
+
+          var sp = curSpeed();
+          scroll += sp * dt;
+          // 반짝임을 조금씩 옅어지게 한다
+          for (var f = flashes.length-1; f >= 0; f--){
+            flashes[f].t += dt;
+            if (flashes[f].t > 0.4){ flashes.splice(f,1); }
+          }
+          for (var i = items.length-1; i >= 0; i--){
+            var it = items[i];
+            it.x -= sp * dt;
+            if (it.x < -50){ items.splice(i,1); continue; }
+            var gap = Math.abs(it.x - px);
+            if (it.type === 'trash'){
+              // 지나가면 자동으로 줍는다 (껍질에 숨은 동안에는 못 줍는다)
+              if (gap < 26 && hideT <= 0){
+                items.splice(i,1);
+                score++;
+                scoreEl.textContent = String(score);
+                flashes.push({ x: px + 30, y: feetY - 40, t: 0 });
+              }
+            } else {
+              // 장애물은 등껍질에 숨어서 스쳐 지나가게 한다
+              if (gap < 26 && hideT <= 0){ over = true; crashed = true; }
+            }
+          }
+        }
+      }
+    }
+
+    drawSky(); drawSea(); drawSand();
+    for (var j = 0; j < items.length; j++) drawItem(items[j]);
+    drawFlashes();
+    if (!over) drawRunner();
+
+    if (isOn){
+      drawHud();
+      if (over){
+        ctx.fillStyle = 'rgba(11,37,69,.6)';
+        ctx.fillRect(0,0,W,H);
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 40px Jua, sans-serif';
+        ctx.fillText(cleared ? '모든 단계 통과!' : '아이고! 넘어졌어요!', W/2, H/2 - 30);
+        ctx.font = 'bold 28px Jua, sans-serif';
+        ctx.fillText('우리가 쓰레기 ' + score + '개를 주웠어요!', W/2, H/2 + 18);
+        ctx.font = '20px Jua, sans-serif';
+        ctx.fillStyle = '#ffe97d';
+        ctx.fillText('R 키를 누르면 다시 해요', W/2, H/2 + 56);
+      } else if (levelUp > 0){
+        ctx.fillStyle = 'rgba(11,37,69,.45)';
+        ctx.fillRect(0,0,W,H);
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#ffe97d';
+        ctx.font = 'bold 42px Jua, sans-serif';
+        ctx.fillText(level + '단계 통과!', W/2, H/2 - 20);
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 24px Jua, sans-serif';
+        ctx.fillText('다음 단계로 고고!', W/2, H/2 + 26);
+      } else if (paused){
+        ctx.fillStyle = 'rgba(11,37,69,.45)';
+        ctx.fillRect(0,0,W,H);
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 38px Jua, sans-serif';
+        ctx.fillText('쉬는 중!', W/2, H/2 - 14);
+        ctx.fillStyle = '#ffe97d';
+        ctx.font = 'bold 20px Jua, sans-serif';
+        ctx.fillText('Shift 또는 P 키를 누르면 계속 달려요', W/2, H/2 + 24);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // 게임 장이 보이는 동안: 스페이스 = 등껍질에 숨기, Shift = 멈춤, R = 다시 시작
+  document.addEventListener('keydown', function(e){
+    if (!slide.classList.contains('on')) return;
+    if (e.key === ' '){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (!over && !paused && levelUp <= 0 && prep <= 0 && hideT <= 0 && !e.repeat){ prep = 0.15; }
+    }
+    if ((e.key === 'Shift' || e.key === 'p' || e.key === 'P') && !e.repeat){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (started && !over && levelUp <= 0){ paused = !paused; }
+    }
+    if (e.key === 'r' || e.key === 'R'){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      reset();
+    }
+  }, true);
+  // 화면을 누르거나 터치해도 등껍질에 숨을 수 있다
+  cv.addEventListener('pointerdown', function(e){
+    e.stopPropagation();
+    if (!over && !paused && levelUp <= 0 && prep <= 0 && hideT <= 0){ prep = 0.15; }
+  });
+  // 게임 화면 안을 눌러도 장이 넘어가지 않게 한다 (밖은 그대로 넘어감)
+  document.addEventListener('click', function(e){
+    if (slide.classList.contains('on') && cv.contains(e.target)){ e.stopImmediatePropagation(); }
+  }, true);
+})();
+</script>
+</body>
+</html>
